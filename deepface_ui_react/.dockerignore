@@ -1,0 +1,13 @@
+.git
+node_modules
+**/*.swp
+**/*.tsx~
+**/*.swn
+**/*.swo
+
+.vscode
+
+npm-debug.log
+.dockerignore
+.DS_Store
+node_modules

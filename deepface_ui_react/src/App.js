@@ -1,36 +1,33 @@
-import React, { Component } from "react";
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      image: null,
-    };
+import './Styles/app.scss';
+import React, { Component } from 'react';
+import { Header } from "./Components/Header";
+import { SidePanel } from "./Components/SidePanel";
+import { ContentUpload } from "./Components/ContentUpload";
+import ThreeScene from "./Components/3dViewer";
+import background from './Assets/background4.jpg';
+import Home from './Components/Home';
+import AOS from "aos";
+import "aos/dist/aos.css"
 
-    this.onImageChange = this.onImageChange.bind(this);
-  }
 
-  onImageChange = (event) => {
-    if (event.target.files && event.target.files[0]) {
-      let img = event.target.files[0];
-      this.setState({
-        image: URL.createObjectURL(img),
-      });
-    }
-  };
 
-  render() {
+const cors = require("cors");
+document.body.style.margin = 0;
+
+function render() {
+    AOS.init()
     return (
-      <div>
         <div>
-          <div>
-            <img src={this.state.image} />
-            <h1>Select Image</h1>
-            <input type="file" name="myImage" onChange={this.onImageChange} />
-          </div>
+            <Home/>
+            <Header/>
+            <ContentUpload/>
+            <ThreeScene/>
+            <Header/>
+            
         </div>
-      </div>
-    );
-  }
-}
 
-export default App;
+        
+    );
+};
+
+export default render;

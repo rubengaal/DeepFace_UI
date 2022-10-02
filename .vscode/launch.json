@@ -1,0 +1,34 @@
+{
+    "configurations": [
+        {
+            "name": "Kubernetes: Run/Debug",
+            "type": "cloudcode.kubernetes",
+            "request": "launch",
+            "skaffoldConfig": "${workspaceFolder}\\deepface_ui_react\\skaffold.yaml",
+            "watch": true,
+            "cleanUp": false,
+            "portForward": true,
+            "internalConsoleOptions": "neverOpen",
+            "debug": [
+                {
+                    "image": "deepcheap-app",
+                    "containerName": "deepcheap-app",
+                    "sourceFileMap": {
+                        "${workspaceFolder}\\deepface_ui_react": "/app"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Kubernetes: Run/Debug",
+            "type": "cloudcode.kubernetes",
+            "request": "launch",
+            "skaffoldConfig": "${workspaceFolder}\\deepface_ui_react\\skaffold.yaml",
+            "watch": true,
+            "cleanUp": true,
+            "portForward": true,
+            "noDebug": true,
+            "internalConsoleOptions": "neverOpen"
+        }
+    ]
+}
